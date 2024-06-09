@@ -13,9 +13,8 @@ This repository contains:
 - [🛠️ Download Dependencies](#-download-dependencies)
 	- [Video Generation Model Setup](#video-generation-model-setup)
    	- [Training Environment Setup](#training-environment-setup)
-- [🚀 Model Training](#-model-training)
-- [👀 Model Evaluation](#-model-evaluation)
-- [🥰 Acknowledgement](#-acknowledgement)
+- [🚀 Model Training](#model-training)
+- [👀 Model Evaluation](#model-evaluation)
 
 ## 🛠️ Download Dependencies
 
