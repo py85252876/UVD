@@ -64,6 +64,7 @@ After completing all the above steps, we can start training the detection model.
 
 ```bash
 python train_mae.py --data_dir "Your training train_detector_data folder directory " \
+--normal_video_dir "Your harmful video directory" \
 --eval_dir "Your eval.pth directory" \
 --group_num 1 \
 --train \
@@ -74,7 +75,7 @@ python train_mae.py --data_dir "Your training train_detector_data folder directo
 ```
 
 > Note: Including `eval.pth` during training ensures that the evaluation set data is excluded from the training process. Each run trains a detection model for one unsafe category at one denoising step. Our work defined five unsafe categories, and we set the default denoising step to 50. Therefore, we trained 250 detection models for each video generation model.
-> The training label unsafe video and class 1, you also need to generate the same number of harmful videos and use them in the training process. We used [InternVid](https://github.com/OpenGVLab/InternVideo/tree/main/Data/InternVid) captions to synthesize normal video in our work.
+> The training label unsafe video and class 1, you also need to generate the same number of harmful videos and use them as class 0 in the training process. We used [InternVid](https://github.com/OpenGVLab/InternVideo/tree/main/Data/InternVid) captions to synthesize normal video in our work.
 
 [👀 Model Evaluation](#-model-evaluation)
 
@@ -92,7 +93,7 @@ Then based on the different $\eta$ and $\lambda$ settings, we can run [`test_acc
 
 ```bash
 python test_accuracy.py --data_dir "Your evaluation results directory" \
---lambda 0.6 \
+--set_lambda 0.6 \
 --eta 20 
 ```
 
