@@ -16,7 +16,7 @@ This repository contains:
 - [🚀 Model Training](#model-training)
 - [👀 Model Evaluation](#model-evaluation)
 
-## 🛠️ Download Dependencies
+## Download Dependencies
 
 ### Video Generation Model Setup
 
@@ -30,7 +30,7 @@ In addition to configuring the model's environment, we also need to set up a bas
 pip install -r requirements.txt
 ```
 
-### Model Training
+## Model Training
 
 Here, we first discuss how to generate training data for the detection model and introduce how to use this data for training. 
 
@@ -47,7 +47,7 @@ python build_x0.py --config build_x0.yaml \
 
 > Note: The label file devided the generated unsafe videos according to their index. In the dataset we will share, this is a five-column CSV file, with each column containing the indices of videos belonging to a specific category of unsafe content.
 
-Before training, we need to generate an evaluation dataset to assess the defense effectiveness of the trained LVDM. Run the `gen_eval_data.py` script to generate a `eval.pth` file. This file is saved in the [MagicTime](./MagicTime) directory by default.
+Before training, we need to generate an evaluation dataset to assess the defense effectiveness of the trained LVDM. Run the [`gen_eval_data.py`](/gen_eval_data.py) script to generate the `eval.pth` file. This file is saved in the [MagicTime](./MagicTime) directory by default.
 
 ```bash
 python gen_eval_set.py
@@ -74,9 +74,9 @@ python train_mae.py --data_dir "Your training train_detector_data folder directo
 ```
 
 > Note: Including `eval.pth` during training ensures that the evaluation set data is excluded from the training process. Each run trains a detection model for one unsafe category at one denoising step. Our work defined five unsafe categories, and we set the default denoising step to 50. Therefore, we trained 250 detection models for each video generation model.
-> The training label unsafe video and class 1, you also need to generate the same number of harmful videos and use them as class 0 in the training process. We used [InternVid](https://github.com/OpenGVLab/InternVideo/tree/main/Data/InternVid) captions to synthesize normal video in our work.
+> The training label unsafe video and class 1. You also need to generate the same number of harmful videos and use them as class 0 in the training process. We used [InternVid](https://github.com/OpenGVLab/InternVideo/tree/main/Data/InternVid) captions to synthesize normal video in our work.
 
-[👀 Model Evaluation](#-model-evaluation)
+## Model Evaluation
 
 In this section, we will evaluate the effectiveness of our LVDM against unsafe generation models in two steps. 
 
