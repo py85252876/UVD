@@ -37,7 +37,15 @@ Here, we first discuss how to generate training data for the detection model and
 
 First, you need to prepare a `prompt.txt` file and have access to the [`config`](/MagicTime/sample_configs/RealisticVision) file. In this file, specify the path to your `prompt.txt` file and the desired path to save `pred_x0.pth`. The `pred_x0.pth` file contains the data required for the detection model.
 
-After obtaining `pred_x0.pth`, you can use `build_x0.py` to generate a directory containing all predicted $x_0$ for each denoising step.
+After obtaining `pred_x0.pth`, you can use [`build_x0.py`](/build_x0.py) to generate a directory containing all predicted $x_0$ for each denoising step.
+
+Run:
+
+```bash
+python build_x0.py --config build_x0.yaml \
+--label_file_dir "Your label file directory"
+```
+
 
 
 
