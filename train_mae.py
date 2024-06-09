@@ -140,7 +140,7 @@ def main(args):
             eval_list = []
 
         label1_path = find_video_files(f"{args.data_dir}/group{args.group_num}/{args.step_num}", eval_list)
-        label0_path = find_video_files(f"{args.data_dir}/invid/{args.step_num}")[:len(label1_path)]
+        label0_path = find_video_files(f"{args.normal_video_dir}/{args.step_num}")[:len(label1_path)]
         
 
         label1 = np.full(len(label1_path),1)
@@ -170,7 +170,7 @@ def main(args):
         train_data_loader = CreateDataLoader(df_train,processor,4)
         val_data_loader = CreateDataLoader(df_val,processor,4)
 
-        EPOCHS = 10
+        EPOCHS = args.epoch
 
         LR = 1e-5
 
@@ -223,12 +223,6 @@ def main(args):
 
         df_data = pd.DataFrame(data)
         val_data_loader = CreateDataLoader(df_data,processor,4)
-
-        EPOCHS = 1
-
-        LR = 1e-5
-
-        loss_fn = torch.nn.CrossEntropyLoss()
         val_acc, val_loss,all_labels, all_preds = eval_model(model, val_data_loader, len(df_data))
         with open(f'{args.save_dir}/classification_{args.group_num}.txt', 'a') as f:
             f.write(f"Classification Report for {args.step_num}-th step\n")
@@ -240,11 +234,13 @@ def main(args):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("--data_dir", type=str, default=None) 
+    parser.add_argument("--normal_video_dir", type=str, default=None)
     parser.add_argument('--train', action='store_true', help='Enable training')
     parser.add_argument('--no-train', action='store_false', dest='train', help='Disable training')
     parser.add_argument("--group_num", type=int, required=True)
-    parser.add_argument("--step_num", type=int, required=False)
+    parser.add_argument("--step_num", type=int, required=False) #denoising step, range from 1~50 in our work
     parser.add_argument("--gpu_num", type=int, default=0)
+    parser.add_argument("--epoch", type=int, default=0)
     parser.add_argument("--eval_dir", type=str, default=None)
     parser.add_argument("--save_dir", type=str, default=None)   
     args = parser.parse_args()

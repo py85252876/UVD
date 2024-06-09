@@ -159,7 +159,7 @@ def main(args):
         del System.models,data,val_data_loader,ds
         torch.cuda.empty_cache()
         gc.collect()
-    torch.save(data_dict,f"{args.save_dir}/your evaluation results directory")
+    torch.save(data_dict,args.save_dir)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()

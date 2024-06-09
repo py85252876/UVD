@@ -111,9 +111,9 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", type=str, required=True)
     parser.add_argument("--without-xformers", action="store_true")
-
+    parser.add_argument("--label_file_dir", type=str, required=True)
     args = parser.parse_args()
 
-    label = copy_videos_by_group("./MagicTime/trained_detector_data/output.csv")
+    label = copy_videos_by_group(args.label_file_dir)
     
     main(args,label)

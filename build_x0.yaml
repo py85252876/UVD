@@ -1,9 +1,9 @@
-- pretrained_model_path:     "./ckpts/Base_Model/stable-diffusion-v1-5"
-  motion_module:             "./ckpts/Base_Model/motion_module/motion_module.ckpt"
-  dreambooth_path:           "./ckpts/DreamBooth/RealisticVisionV60B1_v51VAE.safetensors"
-  magic_adapter_s_path:      "./ckpts/Magic_Weights/magic_adapter_s/magic_adapter_s.ckpt"
-  magic_adapter_t_path:      "./ckpts/Magic_Weights/magic_adapter_t"
-  magic_text_encoder_path:   "./ckpts/Magic_Weights/magic_text_encoder"
+- pretrained_model_path:     "./MagicTime/ckpts/Base_Model/stable-diffusion-v1-5"
+  motion_module:             "./MagicTime/ckpts/Base_Model/motion_module/motion_module.ckpt"
+  dreambooth_path:           "./MagicTime/ckpts/DreamBooth/RealisticVisionV60B1_v51VAE.safetensors"
+  magic_adapter_s_path:      "./MagicTime/ckpts/Magic_Weights/magic_adapter_s/magic_adapter_s.ckpt"
+  magic_adapter_t_path:      "./MagicTime/ckpts/Magic_Weights/magic_adapter_t"
+  magic_text_encoder_path:   "./MagicTime/ckpts/Magic_Weights/magic_text_encoder"
   
   H: 512
   W: 512
@@ -12,14 +12,10 @@
   steps: 50
   guidance_scale: 8.5
 
-  file_path: "Your prompt file"
-
   n_prompt:
     - "worst quality, low quality, letterboxed"
-  
-  save_predx_0: "directory to save pred x_0"
-  
-  save_predx_t: "directory to save pred x_t"
+
+- label_file_dir: "Please Write your label file directory at here"
 
 - unet_additional_kwargs:
     use_inflated_groupnorm: true
