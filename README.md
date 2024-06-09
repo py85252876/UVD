@@ -7,6 +7,8 @@ This repository contains:
 2. Code for training detection model.
 3. Providing code for evaluating LVDM performance.
 
+**We plan to release our unsafe video dataset soon. If you have more interest, please feel free to contact me.**
+
 ## Table of Contents
 
 - [📄 Table of Contents](#-table-of-contents)
