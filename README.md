@@ -1,6 +1,10 @@
 # Towards Understanding Unsafe Video Generation
 
-In this study, we examined the capability of current video generation models to produce unsafe content. We compiled a dataset of 2,112 unsafe videos using unsafe prompts. Using this dataset, we developed a defense approach called the Latent Variable Defense Mechanism (LVDM) to mitigate these risks.
+<a href='https://arxiv.org/abs/2407.12581'><img src='https://img.shields.io/badge/Paper-Arxiv-red'></a> 
+<a href='https://huggingface.co/datasets/pypy/unsafe_generated_video_dataset'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Model-blue'></a> 
+
+
+In this work, we examined the capability of current video generation models to produce unsafe content. We compiled a dataset of 2,112 unsafe videos using unsafe prompts. Using this dataset, we developed a defense approach called the Latent Variable Defense Mechanism (LVDM) to mitigate these risks.
 
 This repository contains:
 1. Introducing how to generate a training dataset
@@ -17,6 +21,7 @@ This repository contains:
    	- [Training Environment Setup](#training-environment-setup)
 - [🚀 Model Training](#model-training)
 - [👀 Model Evaluation](#model-evaluation)
+- [🖊️ Citation](#-citation)
 
 ## Download Dependencies
 
@@ -98,6 +103,19 @@ python test_accuracy.py --data_dir "Your evaluation results directory" \
 --eta 20 
 ```
 
+## 🖊️ Citation
+
+```BibTex
+@misc{pang2024understandingunsafevideogeneration,
+      title={Towards Understanding Unsafe Video Generation}, 
+      author={Yan Pang and Aiping Xiong and Yang Zhang and Tianhao Wang},
+      year={2024},
+      eprint={2407.12581},
+      archivePrefix={arXiv},
+      primaryClass={cs.CR},
+      url={https://arxiv.org/abs/2407.12581}, 
+}
+```
 
 
 
