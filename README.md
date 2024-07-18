@@ -1,7 +1,7 @@
 # Towards Understanding Unsafe Video Generation
 
 <a href='https://arxiv.org/abs/2407.12581'><img src='https://img.shields.io/badge/Paper-Arxiv-red'></a> 
-<a href='https://huggingface.co/datasets/pypy/unsafe_generated_video_dataset'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Model-blue'></a> 
+<a href='https://huggingface.co/datasets/pypy/unsafe_generated_video_dataset'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Dataset-blue'></a> 
 
 
 In this work, we examined the capability of current video generation models to produce unsafe content. We compiled a dataset of 2,112 unsafe videos using unsafe prompts. Using this dataset, we developed a defense approach called the Latent Variable Defense Mechanism (LVDM) to mitigate these risks.
