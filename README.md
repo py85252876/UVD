@@ -21,7 +21,7 @@ This repository contains:
    	- [Training Environment Setup](#training-environment-setup)
 - [🚀 Model Training](#model-training)
 - [👀 Model Evaluation](#model-evaluation)
-- [🖊️ Citation](#-citation)
+- [🖊️ Citation](#citation)
 
 ## Download Dependencies
 
@@ -103,7 +103,7 @@ python test_accuracy.py --data_dir "Your evaluation results directory" \
 --eta 20 
 ```
 
-## 🖊️ Citation
+## Citation
 
 ```BibTex
 @misc{pang2024understandingunsafevideogeneration,
