@@ -1,11 +1,17 @@
 # Towards Understanding Unsafe Video Generation
 
-In this study, we examined the capability of current video generation models to produce unsafe content. We compiled a dataset of 2,112 unsafe videos using unsafe prompts. Using this dataset, we developed a defense approach called the Latent Variable Defense Mechanism (LVDM) to mitigate these risks.
+<a href='https://arxiv.org/abs/2407.12581'><img src='https://img.shields.io/badge/Paper-Arxiv-red'></a> 
+<a href='https://huggingface.co/datasets/pypy/unsafe_generated_video_dataset'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Dataset-blue'></a> 
+
+
+In this work, we examined the capability of current video generation models to produce unsafe content. We compiled a dataset of 2,112 unsafe videos using unsafe prompts. Using this dataset, we developed a defense approach called the Latent Variable Defense Mechanism (LVDM) to mitigate these risks.
 
 This repository contains:
 1. Introducing how to generate a training dataset
 2. Code for training detection model.
 3. Providing code for evaluating LVDM performance.
+
+**We plan to release our unsafe video dataset soon. If you have more interest, please feel free to contact me.**
 
 ## Table of Contents
 
@@ -15,8 +21,9 @@ This repository contains:
    	- [Training Environment Setup](#training-environment-setup)
 - [🚀 Model Training](#model-training)
 - [👀 Model Evaluation](#model-evaluation)
+- [🖊️ Citation](#citation)
 
-## 🛠️ Download Dependencies
+## Download Dependencies
 
 ### Video Generation Model Setup
 
@@ -30,7 +37,7 @@ In addition to configuring the model's environment, we also need to set up a bas
 pip install -r requirements.txt
 ```
 
-### Model Training
+## Model Training
 
 Here, we first discuss how to generate training data for the detection model and introduce how to use this data for training. 
 
@@ -47,7 +54,7 @@ python build_x0.py --config build_x0.yaml \
 
 > Note: The label file devided the generated unsafe videos according to their index. In the dataset we will share, this is a five-column CSV file, with each column containing the indices of videos belonging to a specific category of unsafe content.
 
-Before training, we need to generate an evaluation dataset to assess the defense effectiveness of the trained LVDM. Run the `gen_eval_data.py` script to generate a `eval.pth` file. This file is saved in the [MagicTime](./MagicTime) directory by default.
+Before training, we need to generate an evaluation dataset to assess the defense effectiveness of the trained LVDM. Run the [`gen_eval_data.py`](/gen_eval_data.py) script to generate the `eval.pth` file. This file is saved in the [MagicTime](./MagicTime) directory by default.
 
 ```bash
 python gen_eval_set.py
@@ -74,9 +81,9 @@ python train_mae.py --data_dir "Your training train_detector_data folder directo
 ```
 
 > Note: Including `eval.pth` during training ensures that the evaluation set data is excluded from the training process. Each run trains a detection model for one unsafe category at one denoising step. Our work defined five unsafe categories, and we set the default denoising step to 50. Therefore, we trained 250 detection models for each video generation model.
-> The training label unsafe video and class 1, you also need to generate the same number of harmful videos and use them as class 0 in the training process. We used [InternVid](https://github.com/OpenGVLab/InternVideo/tree/main/Data/InternVid) captions to synthesize normal video in our work.
+> The training label unsafe video and class 1. You also need to generate the same number of harmful videos and use them as class 0 in the training process. We used [InternVid](https://github.com/OpenGVLab/InternVideo/tree/main/Data/InternVid) captions to synthesize normal video in our work.
 
-[👀 Model Evaluation](#-model-evaluation)
+## Model Evaluation
 
 In this section, we will evaluate the effectiveness of our LVDM against unsafe generation models in two steps. 
 
@@ -96,6 +103,19 @@ python test_accuracy.py --data_dir "Your evaluation results directory" \
 --eta 20 
 ```
 
+## Citation
+
+```BibTex
+@misc{pang2024understandingunsafevideogeneration,
+      title={Towards Understanding Unsafe Video Generation}, 
+      author={Yan Pang and Aiping Xiong and Yang Zhang and Tianhao Wang},
+      year={2024},
+      eprint={2407.12581},
+      archivePrefix={arXiv},
+      primaryClass={cs.CR},
+      url={https://arxiv.org/abs/2407.12581}, 
+}
+```
 
 
 
