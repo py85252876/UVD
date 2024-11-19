@@ -61,10 +61,19 @@ Then run [`build_eval_set.py`](./build_eval_set.py) to generate the `eval_set` f
 python build_eval_set.py
 ```
 
-After completing all the above steps, we can start training the detection model.
+After completing all the previous steps, you can begin training the detection model. Here are the key parameters for the training command:
+
+- `--data_dir`: Specify the directory containing unsafe videos
+- `--normal_video_dir`: Point to the directory of normal videos (we used InternVid in our implementation)
+- `--group_num`: Define the number of unsafe groups
+- `--train`: Enable training mode (switch to `--no-train` for evaluation)
+- `--epoch`: Set the number of training epochs (default: 10)
+- `--step_num`: Specify the number of denoising steps
+
+The model can be run in either training or evaluation mode by toggling the `--train` flag. For training, simply use `--train`; for evaluation, use `--no-train` instead.
 
 ```bash
-python train_mae.py --data_dir "Your training train_detector_data folder directory " \
+python mae.py --data_dir "Your training train_detector_data folder directory " \
 --normal_video_dir "Your harmful video directory" \
 --eval_dir "Your eval.pth directory" \
 --group_num 1 \
