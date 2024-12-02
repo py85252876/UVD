@@ -1,6 +1,6 @@
 # Towards Understanding Unsafe Video Generation
 
-In this study, we examined the capability of current video generation models to produce unsafe content. We compiled a dataset of 2,112 unsafe videos using unsafe prompts. Using this dataset, we developed a defense approach called the Latent Variable Defense Mechanism (LVD) to mitigate these risks. This work has been accepted for presentation at NDSS 2025, and the paper can be accessed via its DOI [here](https://dx.doi.org/10.14722/ndss.2025.241167). The model checkpoints and datasets required to reproduce our experiments are available in [Zenodo](10.5281/zenodo.14248970).
+In this study, we examined the capability of current video generation models to produce unsafe content. We compiled a dataset of 2,112 unsafe videos using unsafe prompts. Using this dataset, we developed a defense approach called the Latent Variable Defense Mechanism (LVD) to mitigate these risks. This work has been accepted for presentation at NDSS 2025, and the paper "Towards Understanding Unsafe Video Generation" can be accessed via its DOI [here](https://dx.doi.org/10.14722/ndss.2025.241167). The model checkpoints and datasets required to reproduce our experiments are available in [Zenodo](10.5281/zenodo.14248970).
 
 This repository contains:
 1. Introducing how to generate a training dataset
